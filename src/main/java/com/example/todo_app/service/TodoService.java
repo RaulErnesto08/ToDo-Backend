@@ -28,7 +28,7 @@ public class TodoService {
         Todo todo = todoList.get(id);
 
         if (todo == null) {
-          throw new RuntimeException("Todo not Found"); // Return 404
+          throw new RuntimeException("Todo not Found"); // Todo: Add Return 404
         }
 
         todo.setText(updatedTodo.getText());

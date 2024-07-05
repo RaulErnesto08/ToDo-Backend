@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin(origins = "http://localhost:3000", exposedHeaders = "x-total-count")
+@CrossOrigin(origins = "http://localhost:8080", exposedHeaders = "x-total-count")
 @RestController
 @RequestMapping("/todos")
 public class TodoController {

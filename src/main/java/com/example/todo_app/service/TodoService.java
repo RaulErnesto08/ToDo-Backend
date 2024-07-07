@@ -23,7 +23,11 @@ public class TodoService {
        Boolean doneFilter) {
 
         Comparator<Todo> comparator = switch (sortBy) {
-            case "priority" -> Comparator.comparing(Todo::getPriority);
+            case "priority" -> Comparator.comparingInt(todo -> switch (todo.getPriority()) {
+                case LOW -> 1;
+                case MEDIUM -> 2;
+                case HIGH -> 3;
+            });
             case "dueDate" -> Comparator.comparing(Todo::getDueDate, Comparator.nullsLast(Comparator.naturalOrder()));
             default -> Comparator.comparing(Todo::getCreationDate);
         };

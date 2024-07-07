@@ -45,7 +45,7 @@ public class TodoService {
     public long getTotalTodos(String textFilter, String priorityFilter, Boolean doneFilter) {
         return todoList.values().stream()
                 .filter(todo -> textFilter == null || todo.getText().contains(textFilter))
-                .filter(todo -> priorityFilter == null || todo.getPriority().name().equalsIgnoreCase(priorityFilter))
+                .filter(todo -> priorityFilter == null || priorityFilter.isEmpty() || todo.getPriority().name().equalsIgnoreCase(priorityFilter))
                 .filter(todo -> doneFilter == null || todo.isDone() == doneFilter)
                 .count();
     }
